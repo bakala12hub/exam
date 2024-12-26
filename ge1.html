@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn and Earn Profile</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset and Box Sizing */
+    * {
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #001f54;
+      padding-top: 60px; /* Ensure content is not hidden behind the fixed navbar */
+    }
+
+    /* Top Navigation Bar */
+    .topnav {
+      position: fixed; /* Fix the navbar to the top */
+      top: 0; /* Stick to the top */
+      left: 0;
+      right: 0;
+      z-index: 1000; /* Ensure the navbar stays on top of other elements */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #001f54;
+      padding: 10px 20px;
+      flex-wrap: nowrap;
+    }
+
+    .topnav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: #ddd;
+      padding: 10px 16px;
+      text-align: center;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Header */
+    .header {
+      background-color: #e7f0fc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      width: 300px;
+      background-color: #f0f8ff;
+      border: 2px solid #001f54;
+      border-radius: 10px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .category label {
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      background-color: #e7f0fc;
+      box-shadow: 0px 0px 20px 4px rgb(47 53 109);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #2a3d66;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+    /* Submit Button Styles */
+#submitBtn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#submitBtn:hover {
+    background-color: #218838;
+}
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="topnav">
+    <div class="logo">LOGO</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Introduction to History</div>
+  </header>
+
+  <!-- MCQ Section -->
+  <section class="mcq">
+    <div class="categories">
+      <div class="category">
+        <div class="container">
+
+            
+    <main>
+        <h2>Test your knowledge!</h2>
+        <form id="quizForm">
+            <!-- Quiz questions will be inserted here dynamically -->
+        </form>
+        <button type="button" id="submitBtn">Submit Quiz</button>
+        <p id="score" style="display: none;">Your score: <span id="scoreValue"></span> / <span id="totalQuestions"></span></p>
+
+    </main>
+
+    <script>
+        // Quiz questions and options
+        const questions = [
+            {
+                question: 'What is the study of the past called?',
+                options: ['Science', 'History', 'Geography', 'Philosophy'],
+                answer: 'History'
+            },
+            {
+                question: 'The word "History" is derived from which language?',
+                options: ['Latin', 'Greek', 'Sanskrit', 'Hebrew'],
+                answer: 'Greek'
+            },
+            {
+                question: 'Who is known as the "Father of History"?',
+                options: ['Leopold von Ranke', 'Herodotus', 'Karl Marx', 'Hegel'],
+                answer: 'Herodotus'
+            },
+            {
+                question: 'Which book was written by Herodotus?',
+                options: ['The History of the World', 'The Histories', 'The Persian Wars', 'The Rise and Fall of Rome'],
+                answer: 'The Histories'
+            },
+            {
+                question: 'Leopold von Ranke is called the "Father of Modern History" because he emphasized:',
+                options: ['Writing history as it was', 'History as a tool for political propaganda', 'The study of ancient civilizations', 'The role of kings in shaping history'],
+                answer: 'Writing history as it was'
+            },
+            {
+                question: 'What did Hegel say about history?',
+                options: ['History is a series of random events.', 'History repeats itself.', 'History is irrelevant to human progress.', 'History is shaped by social forces.'],
+                answer: 'History repeats itself.'
+            },
+            {
+                question: 'What did Karl Marx add to Hegel’s view on history?',
+                options: ['History is made by the people.', 'History repeats itself, first as tragedy, second as farce.', 'History is irrelevant.', 'History is shaped by religion.'],
+                answer: 'History repeats itself, first as tragedy, second as farce.'
+            },
+            {
+                question: 'E.H. Carr defined history as:',
+                options: ['A collection of ancient artifacts', 'A continuous process of interaction between the historian and his facts', 'The study of kings and queens', 'The search for truth'],
+                answer: 'A continuous process of interaction between the historian and his facts'
+            },
+            {
+                question: 'What does BC stand for?',
+                options: ['Before Christ', 'Before Civilization', 'Before Common Era', 'Before Change'],
+                answer: 'Before Christ'
+            },
+            {
+                question: 'What does AD stand for?',
+                options: ['After Death', 'Anno Domini', 'After Development', 'Anno Differentiation'],
+                answer: 'Anno Domini'
+            },
+            {
+                question: 'How is time counted in BC?',
+                options: ['Forward', 'Backward', 'Irregularly', 'Based on the moon\'s phases'],
+                answer: 'Backward'
+            },
+            {
+                question: 'How is time counted in AD?',
+                options: ['Forward', 'Backward', 'Irregularly', 'Based on the sun\'s cycle'],
+                answer: 'Forward'
+            },
+            {
+                question: 'What is a Decade?',
+                options: ['100 years', '10 years', '50 years', '1 year'],
+                answer: '10 years'
+            },
+            {
+                question: 'What is a Century?',
+                options: ['1,000 years', '500 years', '100 years', '50 years'],
+                answer: '100 years'
+            },
+            {
+                question: 'What is a Millennium?',
+                options: ['1,000 years', '500 years', '100 years', '10 years'],
+                answer: '1,000 years'
+            },
+            {
+                question: 'Which of the following refers to the first half of a century?',
+                options: ['Years 1–50 of a century', 'Years 51–100 of a century', 'Years 100–150 of a century', 'Years 150–200 of a century'],
+                answer: 'Years 1–50 of a century'
+            },
+            {
+                question: 'Which of the following refers to the second half of a century?',
+                options: ['Years 51–100 of a century', 'Years 1–50 of a century', 'Years 100–150 of a century', 'Years 150–200 of a century'],
+                answer: 'Years 51–100 of a century'
+            },
+            {
+                question: 'What does "Circa" (C./Ca.) mean?',
+                options: ['The exact date', 'The end of a period', 'The approximate date', 'The start of a period'],
+                answer: 'The approximate date'
+            },
+            {
+                question: 'What was the approximate period of the Vedic Culture?',
+                options: ['C. 1500 BC–600 BC', 'C. 3000 BC–1000 BC', 'C. 4000 BC–2000 BC', 'C. 1000 BC–500 BC'],
+                answer: 'C. 1500 BC–600 BC'
+            },
+            {
+                question: 'Who wrote "The Histories"?',
+                options: ['Leopold von Ranke', 'Karl Marx', 'Herodotus', 'E.H. Carr'],
+                answer: 'Herodotus'
+            },
+            {
+                question: 'Which of the following is associated with Leopold von Ranke?',
+                options: ['History as it actually was', 'History as a series of tragedies', 'The study of the future', 'The importance of political leaders'],
+                answer: 'History as it actually was'
+            },
+            {
+                question: 'Who said, "History repeats itself"?',
+                options: ['Karl Marx', 'Hegel', 'Herodotus', 'Leopold von Ranke'],
+                answer: 'Hegel'
+            },
+            {
+                question: 'What does the term "Anno Domini" mean?',
+                options: ['In the year of the Lord (Jesus Christ)', 'After the death of Christ', 'Before the birth of Christ', 'In the year of discovery'],
+                answer: 'In the year of the Lord (Jesus Christ)'
+            },
+            {
+                question: 'Which of the following describes a period of 10 years?',
+                options: ['Decade', 'Century', 'Millennium', 'Era'],
+                answer: 'Decade'
+            },
+            {
+                question: 'What term is used for the years counted before the birth of Jesus Christ?',
+                options: ['BCE', 'CE', 'BC', 'AD'],
+                answer: 'BC'
+            },
+            {
+                question: 'What is the period from 1–50 years in a century called?',
+                options: ['First half of a century', 'Second half of a century', 'Middle of a century', 'None of the above'],
+                answer: 'First half of a century'
+            },
+            {
+                question: 'The term "History repeats itself, first as tragedy, second as farce" is attributed to:',
+                options: ['Hegel', 'Karl Marx', 'Leopold von Ranke', 'Herodotus'],
+                answer: 'Karl Marx'
+            },
+            {
+                question: 'What does BC stand for?',
+                options: ['Before Creation', 'Before Christ', 'Before Civilization', 'Before Common Era'],
+                answer: 'Before Christ'
+            },
+            {
+                question: 'Who is known for emphasizing the factual accuracy of history, especially its documentation?',
+                options: ['Herodotus', 'Karl Marx', 'Leopold von Ranke', 'Hegel'],
+                answer: 'Leopold von Ranke'
+            },
+            {
+                question: 'What is the significance of "Circa" in historical timelines?',
+                options: ['Indicates a specific date', 'Indicates a range of dates', 'Denotes an approximate date', 'Denotes a fixed period of time'],
+                answer: 'Denotes an approximate date'
+            }
+        ];
+
+        // Function to dynamically display the quiz questions and options
+        function displayQuestions() {
+            const quizForm = document.getElementById('quizForm');
+            questions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                const questionText = document.createElement('p');
+                questionText.textContent = question.question;
+                questionDiv.appendChild(questionText);
+
+                question.options.forEach(option => {
+                    const label = document.createElement('label');
+                    label.innerHTML = `
+                        <input type="radio" name="answer${index}" value="${option}" required> ${option}
+                    `;
+                    questionDiv.appendChild(label);
+                    questionDiv.appendChild(document.createElement('br'));
+                });
+
+                quizForm.appendChild(questionDiv);
+                quizForm.appendChild(document.createElement('hr'));
+            });
+        }
+
+        // Function to calculate the score
+        function calculateScore() {
+            let score = 0;
+            questions.forEach((question, index) => {
+                const selectedAnswer = document.querySelector(`input[name="answer${index}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === question.answer) {
+                    score++;
+                }
+            });
+
+            // Display the score
+            document.getElementById('score').style.display = 'block';
+            document.getElementById('scoreValue').textContent = score;
+            document.getElementById('totalQuestions').textContent = questions.length;
+        }
+
+        // Add event listener to the submit button
+        document.getElementById('submitBtn').addEventListener('click', calculateScore);
+
+        // Initialize the quiz
+        displayQuestions();
+    </script>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

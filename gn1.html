@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn and Earn Profile</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset and Box Sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #001f54;
+      padding-top: 60px; /* Ensure content is not hidden behind the fixed navbar */
+    }
+
+    /* Top Navigation Bar */
+    .topnav {
+      position: fixed; /* Fix the navbar to the top */
+      top: 0; /* Stick to the top */
+      left: 0;
+      right: 0;
+      z-index: 1000; /* Ensure the navbar stays on top of other elements */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #001f54;
+      padding: 10px 20px;
+      flex-wrap: nowrap;
+    }
+
+    .topnav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: #ddd;
+      padding: 10px 16px;
+      text-align: center;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .topnav {
+        flex-wrap: wrap;
+      }
+    }
+
+    /* Header */
+    .header {
+      background-color: #e7f0fc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      width: 300px;
+      background-color: #f0f8ff;
+      border: 2px solid #001f54;
+      border-radius: 10px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .category label {
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      background-color: #e7f0fc;
+      box-shadow: 0px 0px 20px 4px rgb(47 53 109);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #2a3d66;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="topnav">
+    <div class="logo">LOGO</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Introduction to History</div>
+  </header>
+
+  <!-- MCQ Section -->
+  <section class="mcq">
+    <div class="categories">
+      <div class="category">
+        <div class="container">
+          <section class="section">
+            <h2>What is History?</h2>
+            <p>The study of the past is called 'History'. The English word 'History' is derived from the Greek word <i>historia</i>, meaning research, inquiry, or investigation.</p>
+          </section>
+
+          <section class="section">
+            <h2>Pioneers in History</h2>
+            <ul>
+              <li><strong>Herodotus (484 BC–425 BC)</strong>: Known as the 'Father of History'; wrote <i>The Histories</i> (430 BC), which describes the Graeco-Persian Wars.</li>
+              <li><strong>Leopold von Ranke (1795–1886 AD)</strong>: Called the 'Father of Modern History', emphasizing describing the past as it actually was ('wie es eigentlich gewesen').</li>
+              <li><strong>Hegel (1770–1831 AD)</strong>: Said, "History repeats itself."</li>
+              <li><strong>Karl Marx (1818–1883 AD)</strong>: Added, "History repeats itself, first as tragedy, second as farce."</li>
+              <li><strong>E.H. Carr (1892–1982 AD)</strong>: Defined history as "a continuous process of interaction between the historian and his facts."</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>A System of Dating</h2>
+            <h3>BC and AD</h3>
+            <p><strong>BC:</strong> Stands for 'Before Christ', referring to years before the birth of Jesus Christ. Example: Gautama Buddha (563 BC–483 BC).</p>
+            <p><strong>AD:</strong> Stands for 'Anno Domini', meaning 'In the year of the Lord' (Jesus Christ). Example: Hazrat Muhammad (570 AD–632 AD).</p>
+          </section>
+
+          <section class="section">
+            <h2>Time Line Basics</h2>
+            <ul>
+              <li><strong>BC Years:</strong> Counted backward (e.g., 500 BC → 1 BC). The earlier year is numerically higher.</li>
+              <li><strong>AD Years:</strong> Counted forward (e.g., 1 AD → 500 AD). The later year is numerically higher.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>Time Glossary</h2>
+            <ul>
+              <li><strong>Decade:</strong> A period of 10 years.</li>
+              <li><strong>Century:</strong> A period of 100 years.</li>
+              <li><strong>Millennium:</strong> A period of 1,000 years.</li>
+              <li><strong>First Half of a Century:</strong> Years 1–50 of a century.</li>
+              <li><strong>Second Half of a Century:</strong> Years 51–100 of a century.</li>
+              <li><strong>Circa (C./Ca.):</strong> Used when the exact date is unknown. Example: <i>C. 1500 BC–600 BC</i> refers to the approximate period of the Vedic Culture.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2>Tips to Memorize</h2>
+            <ul>
+              <li>Focus on key individuals (Herodotus, Ranke, Hegel, Marx, Carr).</li>
+              <li>Remember BC and AD chronology rules (backward and forward counting).</li>
+              <li>Familiarize yourself with terms like Decade, Century, and Circa.</li>
+              <li>Practice timelines to internalize the flow of events.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
